@@ -114,6 +114,11 @@ export default class TabViewPagerScroll<T: *> extends React.Component<
   };
 
   _handleScroll = (e: ScrollEvent) => {
+
+    if (this.props.onChangeScroll) {
+      this.props.onChangeScroll(e);
+    }
+
     if (this._isInitial || e.nativeEvent.contentSize.width === 0) {
       return;
     }

@@ -78,6 +78,9 @@ export default class TabViewPagerAndroid<T: *> extends React.Component<
   };
 
   _handlePageScroll = (e: PageScrollEvent) => {
+    if (this.props.onChangeScroll) {
+      this.props.onChangeScroll(e);
+    }
     this.props.offsetX.setValue(
       e.nativeEvent.position *
         this.props.layout.width *
